@@ -3,10 +3,6 @@ require_once "conexion.php";
 //RECOGEMOS EL ID COMO ANTES
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-if (!$id) {
-    die("El ID de la incidencia no es válido");
-}
-
 // BUSCAMOS LA INCIDENCIA EN NUESTRA BASE DE DATOS Y EJECUTAMOS LA CONSULTA 
 $sql = "SELECT * FROM incidencias WHERE id = :id";
 
@@ -15,6 +11,9 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([':id' => $id]);
 
 $incidencia = $stmt->fetch(PDO::FETCH_ASSOC);
+if (!$incidencia) {
+    die("El ID de la incidencia no es válido");
+}
 
 // SI SE HA ENVIADO EL FORMULARIO, ACTUALIZAMOS EL ESTADO
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
