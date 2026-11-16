@@ -64,7 +64,13 @@ Y CADA FILA LA VAMOS A RECORRER COMO UNA $incidencia QUE CONTIENE SU PROPIO id, 
                     <button type="submit">Editar incidencia</button>
                 </form>
             </td>
-
+            <!-- ASIGNAR ESTA INCIDENCIA -->
+            <td>
+                <form action="asignar_incidencia.php" method="GET">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($incidencia['id']); ?>">
+                    <button type="submit">Asignar incidencia</button>
+                </form>
+            </td>
             <!-- ELIMINAR ESTA INCIDENCIA -->
             <td>
                 <form action="eliminar_incidencia.php" method="POST">
