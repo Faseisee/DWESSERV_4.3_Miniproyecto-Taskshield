@@ -30,3 +30,13 @@ INSERT INTO tecnicos (nombre) VALUES
 ('Sergio'),
 ('Rafa'),
 ('Jesus');
+
+--CREAMOS TAMBIEN UNA INCIDENCIA PARA PROBAR--
+INSERT INTO incidencias (titulo, descripcion, prioridad, email_cliente, tecnico_id) 
+VALUES (
+    'Fallo de conexión a la impresora de red', 
+    'El equipo de recepción no detecta la impresora HP del pasillo.', 
+    'Media', 
+    'recepcion@empresa.com', 
+    NULL
+);
